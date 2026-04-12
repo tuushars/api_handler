@@ -22,7 +22,7 @@ Add dependency:
 
 ```yaml
 dependencies:
-  api_handler: 1.0.0
+  dio_api_handler: 1.0.0
 ```
 
 ---
