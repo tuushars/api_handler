@@ -1,6 +1,6 @@
 name: api_handler
 description: "A new Flutter package that provide simplified way to call APIs using dio."
-version: 0.0.1
+version: 1.0.0
 homepage: https://github.com/tuushars/api_handler
 repository: https://github.com/tuushars/api_handler
 issue_tracker: https://github.com/tuushars/api_handler/issues
