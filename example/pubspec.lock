@@ -57,7 +57,7 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.9.2"
-  dio_api_handler:
+  dio_result_handler:
     dependency: "direct main"
     description:
       path: ".."

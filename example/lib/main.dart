@@ -1,4 +1,4 @@
-import 'package:dio_api_handler/dio_api_handler.dart';
+import 'package:dio_result_handler/dio_result_handler.dart';
 import 'package:flutter/material.dart';
 
 void main() {

@@ -33,8 +33,14 @@ Initialize the API client once (recommended in `main.dart`):
 
 ```dart
 void main() {
-  ApiClient.init(
-    baseUrl: "https://api.example.com",
+  DioApiHandler.init(
+    config: DioApiHandlerConfig(
+      baseUrl: () => "api.example.com",
+      token: () => null, // Optional
+      onError: (dynamic error, int? statusCode) {
+        debugPrint("Show Error pop up or message");
+      },
+    ),
   );
 
   runApp(const MyApp());

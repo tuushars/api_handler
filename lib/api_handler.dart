@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:dio_api_handler/dio_api_handler.dart';
+import 'package:dio_result_handler/dio_result_handler.dart';
 
 typedef RequestCall = Future<Response> Function();
 typedef ResponseParser<T> = T Function(dynamic data);
