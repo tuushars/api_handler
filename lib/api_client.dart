@@ -1,32 +1,27 @@
 import 'package:dio/dio.dart';
+import 'dio_api_handler.dart';
 
 class ApiClient {
-  static late Dio dio;
+  static final Dio dio = Dio(
+    BaseOptions(
+      baseUrl: DioApiHandler.config.baseUrl(),
+      connectTimeout: const Duration(seconds: 15),
+      receiveTimeout: const Duration(seconds: 15),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    ),
+  )..interceptors.add(
+    InterceptorsWrapper(
+      onRequest: (options, handler) {
 
-  static void init({
-    required String baseUrl,
-    String? token,
-  }) {
-    dio = Dio(
-      BaseOptions(
-        baseUrl: baseUrl,
-        connectTimeout: const Duration(seconds: 15),
-        receiveTimeout: const Duration(seconds: 15),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      ),
-    );
+        final token = DioApiHandler.config.token?.call();
+        if (token != null && token.isNotEmpty) {
+          options.headers["Authorization"] = "Bearer $token";
+        }
 
-    dio.interceptors.add(
-      InterceptorsWrapper(
-        onRequest: (options, handler) {
-          if (token != null) {
-            options.headers["Authorization"] = "Bearer $token";
-          }
-          handler.next(options);
-        },
-      ),
-    );
-  }
+        handler.next(options);
+      },
+    ),
+  );
 }

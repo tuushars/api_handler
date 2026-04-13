@@ -2,9 +2,14 @@ import 'package:dio_api_handler/dio_api_handler.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  ApiClient.init(
-    baseUrl: "https://jsonplaceholder.typicode.com",
-    token: null, // optional
+  DioApiHandler.init(
+    config: DioApiHandlerConfig(
+      baseUrl: () => "https://jsonplaceholder.typicode.com",
+      token: () => null, // Optional
+      onError: (dynamic error, int? statusCode) {
+        debugPrint("Show Error pop up or message");
+      },
+    ),
   );
   runApp(const MyApp());
 }
@@ -45,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case ApiFailure():
         error = res.message;
-        print(res.errorDetails);
+        debugPrint(res.errorDetails);
     }
     setState(() {});
   }

@@ -1,6 +1,5 @@
-
 import 'package:dio/dio.dart';
-import 'api_result.dart';
+import 'package:dio_api_handler/dio_api_handler.dart';
 
 typedef RequestCall = Future<Response> Function();
 typedef ResponseParser<T> = T Function(dynamic data);
@@ -17,6 +16,9 @@ class ApiHandler {
     } on DioException catch (e) {
       return _handleError<T>(e);
     } catch (e) {
+      if (DioApiHandler.config.onError != null) {
+        DioApiHandler.config.onError!(e, null);
+      }
       return ApiFailure("Unexpected error", errorDetails: e);
     }
   }
@@ -28,6 +30,10 @@ class ApiHandler {
         ? e.response?.data["message"] ?? "Something went wrong"
         : e.message ?? "Something went wrong";
 
-    return ApiFailure<T>(message, statusCode: statusCode);
+    if (DioApiHandler.config.onError != null) {
+      DioApiHandler.config.onError!(e.response?.data, statusCode);
+    }
+
+    return ApiFailure<T>(message, statusCode: statusCode, errorDetails: e.response?.data);
   }
 }
