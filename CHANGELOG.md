@@ -1,3 +1,9 @@
+## 1.0.2
+
+* Just updated the example/main.dart and added comments for better understanding.
+
+---
+
 ## 1.0.1
 
 * Added support for `connectTimeout` and `receiveTimeout` in `DioApiHandlerConfig`.

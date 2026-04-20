@@ -1,9 +1,9 @@
 name: dio_result_handler
 description: "A lightweight Flutter package for simplified API handling using Dio, with built-in success & failure result wrapping via ApiResult."
-version: 1.0.1
-homepage: https://github.com/tuushars/api_handler
-repository: https://github.com/tuushars/api_handler
-issue_tracker: https://github.com/tuushars/api_handler/issues
+version: 1.0.2
+homepage: "https://github.com/tuushars/api_handler"
+repository: "https://github.com/tuushars/api_handler"
+issue_tracker: "https://github.com/tuushars/api_handler/issues"
 
 
 environment:
