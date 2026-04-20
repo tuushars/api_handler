@@ -162,3 +162,11 @@ ApiFailure(
 ## 📄 License
 
 MIT License
+
+---
+
+## 💙 Support My Work
+
+If you find this package helpful, consider sponsoring 🙌
+
+[![Sponsor](https://img.shields.io/badge/Sponsor-GitHub-ff69b4?style=for-the-badge&logo=github)](https://github.com/sponsors/tuushars)

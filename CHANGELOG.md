@@ -1,3 +1,10 @@
+## 1.0.1
+
+* Added support for `connectTimeout` and `receiveTimeout` in `DioApiHandlerConfig`.
+* Improved configuration flexibility for network timeouts.
+
+---
+
 ## 1.0.0
 
 * Initial release with core API handling built on top of Dio.

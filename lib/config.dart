@@ -1,11 +1,15 @@
 class DioApiHandlerConfig {
   final String Function() baseUrl;
   final String? Function()? token;
+  final Duration? connectTimeout;
+  final Duration? receiveTimeout;
   final void Function(dynamic error, int? statusCode)? onError;
 
   DioApiHandlerConfig({
     required this.baseUrl,
     this.token,
+    this.connectTimeout,
+    this.receiveTimeout,
     this.onError,
   });
 }
